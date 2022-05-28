@@ -1,10 +1,19 @@
 # Distributed Synergy AI Benchmarking
 Edge computing emerges as a promising technical framework to overcome the challenges in cloud computing. In this AI era, AI applications are the most critical types of application on the edge. Driven by the increasing computation power of edge devices and the increasing amount of data generated from the edge, Edge-cloud synergy AI and distributed synergy AI techniques has received more and more attention for the sake of device, edge and cloud intelligence enhancement. 
 
-Nevertheless, distributed synergy AI is at its initial stage. For the time being, the comprehensive evaluation standard is not yet available for scenarios with system with various AI paradigms on all three layers of edge computing. That limits the wide application of related techniques and hindering a prosperous ecosystem on distributed synergy AI. A comprehensive end-to-end distributed synergy AI benchmark suite is thus needed to measure and optimize the systems and applications.
+Nevertheless, distributed synergy AI is at its initial stage. For the time being, the comprehensive evaluation standard is not yet available for scenarios with system with various AI paradigms on all three layers of edge computing. That limits the wide application of related techniques and hindering a prosperous ecosystem on distributed synergy AI. A comprehensive end-to-end distributed synergy AI benchmark suite is thus needed to measure and optimize the systems and applications. 
 
-## Motivation
-### Goals
+This proposal provides a basic benchmark suite for distributed synergy AI, so that AI developers and end users can benefit from efficient development support and best practice discovery.
+
+## Goals
+For developers or end user of distributed synergy AI solutions, goals of the distributed synergy AI framework are: 
+- facilitating efficient development for developers by preparing
+    - test cases including dataset and corresponding tools
+    - test tools including simulation and hyper-parameter seraching
+- revealing best practices for developers and end users
+
+
+## Proposal
 The distributed synergy AI benchmarking toolkits Ianvs aims to test the performance of distributed synergy AI solutions following recongized standards, in order to facilitate more efficient and effective development. Its scope includes:
 - Provide end-to-end benchmarks across devices, edge nodes and cloud nodes based on typical distributed synergy AI paradigms and applications. 
     - Tools for Test Environment Management. For example, it would be neccessary to support the CRUD (Create, Read, Update and Delete) actions on test environments. Elements of such test environments include algorithm-wise and system-wise configuration 
@@ -16,10 +25,9 @@ The distributed synergy AI benchmarking toolkits Ianvs aims to test the performa
     - Holding Competitions or
     - Maintaining Solution Leaderboards or Certification for commercial usage 
 
-
-
-
-## Proposal
+Targeting users
+- Developers: build and publish edge-cloud collaborative AI solutions efficiently from scratch
+- End users: view and compare distributed synergy AI capabilities of solutions
 
 ### User flow
 The user flow for the algorithm developer is as follows. 
