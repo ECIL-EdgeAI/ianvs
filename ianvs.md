@@ -30,6 +30,8 @@ Targeting users
 - Developers: Build and publish edge-cloud collaborative AI solutions efficiently from scratch
 - End users: View and compare distributed synergy AI capabilities of solutions
 
+
+## Design Details
 ### User flow
 The user flow for the algorithm developer is as follows. 
 1. Ianvs Compilation: Prepare executable file for Ianvs. 
@@ -56,7 +58,7 @@ The Ianvs is designed to run within a single node. The architectures and related
 
 ![](images/ianvs_arch.png)
 
-### Detailed Definitions of Instances
+### Definitions of Instances
 
 Quite a few terms exist in ianvs, which include the detailed modules and instances. To facilitate easier concept understanding, we show a hierarchical table of terms in the following figures.  
 ![](images/ianvs_concept.png)
@@ -71,7 +73,7 @@ The concept definition of modules has been shown in the Architecture Section. In
 - Algorithm Paradigm: acknowledged AI process which usually includes quite a few modules that can be implemented with replaceable algorithms, e.g., federated learning which includes modules of local train and global aggregation.  
 
 
-### Design Details of Modules
+### Details of Modules
 
 The proposal includes Test Environment Management, Test-case Preparation and Benchmark Presentation in the Distributed Synergy AI benchmarking toolkits, where
 1. Test Environment Management supports the CRUD of Test environments, which include
