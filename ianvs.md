@@ -22,13 +22,23 @@ The distributed synergy AI benchmarking toolkits Ianvs aims to test the performa
 ## Proposal
 
 ### User flow
-The user flow for algorithm developer is as follows. 
-1. Prepare Ianvs Executable File
-1. Integrate 
+The user flow for the algorithm developer is as follows. 
+1. Ianvs Compilation: Prepare executable file for Ianvs. 
+    - An algorithm developer can compile Ianvs in his/her own machine to adapt to local environment, e.g., with TPU. 
+    - Or directly download the pre-compiled executable file if the local environment is following defaults settings.
+1. Test Case Preparation 
+    - Dataset. Datasets can be large. To avoid over-size projects, the Ianvs executable file and code base do not include origin datasets and developers can download datasets from source links (e.g., from Kaggle) given by Ianvs. 
+    - Algorithm Interface. The tested algorithm should follow the Ianvs interface to ensure functional benchmarking.
+1. Algorithm Development: Develop the targeted algorithm
+1. Ianvs Configuration: Fill configuration files for Ianvs
+1. Ianvs Execution: Run the executable file of Ianvs for benchmarking
+1. Ianvs Presentation: View the benchmarking result of the targeted algorithms
+1. Repeat Step 3 - 6 until the targeted algorithm is satisfactory
+
 ![](images/user_flow.png)
 
-### Architecture
-The architectures and related concepts are shown in the below figure. Critical components include
+### Architecture and Modules
+The Ianvs is designed to run within a single node. The architectures and related concepts are shown in the below figure. Critical components include
 - Test Environment Management: the CRUD of test environments serving for global usage
 - Test Case Controller: control the runtime behavior of test cases like instance generization and vanish 
 - Test Case Preparation: test case generization based on certain rules or constraints, e.g., the range of parameters 
@@ -37,12 +47,20 @@ The architectures and related concepts are shown in the below figure. Critical c
 
 ![](images/ianvs_arch.png)
 
-### Detailed Modules and Instances
+### Detailed Definitions of Instances
 
-Quite a few terms exist in ianvs, which include the detialed modules and instances. To facilitate easier concept understanding,  
+Quite a few terms exist in ianvs, which include the detialed modules and instances. To facilitate easier concept understanding, we show a hierarchical table of terms in the following figures.  
 ![](images/ianvs_concept.png)
 
-Benchmarking Job: job instance for individual benchmarking, which includes the components of ianvs
+The concept definition of modules has been shown in the Architecture Section. In the following, we introduce the concepts of instances for easier understanding. 
+- Benchmark: standardized evaluation process reconized by the academic or industry.  
+- Benchmarking Job: the serving instance for a individual benchmarking with Ianvs, which takes charge of the lifetime managment of all possible Ianvs components.
+- Test Object: the targeted instance under benchmark testing. A typical example would be a particular algorithm or system. 
+- Test Environment: the configuration of benchmarking, including algorithm-wise and system-wise configuration. But it does not include the test object.  
+- Test Case: the executable instance to evaluate the performance of test object under a particular test environment. Thus, the test case is usually generated with a particular test environment and outputs testing results if executed. It is the atomic unit of a benchmark. That is, a benchmarking job can include quite a few test cases.
+- Attr. of Test Case: Attributes or descriptors of a test case, e.g., id, name and time stamp.   
+- Algorithm Paradigm: acknowedged AI process which usually includes quite a few modules that can be implemented with replaceable algorithms, e.g., federated learning which includes modules of local train and global aggregation.  
+
 
 ### Design Details of Modules
 
