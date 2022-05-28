@@ -9,8 +9,9 @@ This proposal provides a basic benchmark suite for distributed synergy AI, so th
 For developers or end users of distributed synergy AI solutions, the goals of the distributed synergy AI framework are: 
 - facilitating efficient development for developers by preparing
     - test cases including dataset and corresponding tools
-    - test tools including simulation and hyper-parameter searching
+    - benchmarking tools including simulation and hyper-parameter searching
 - revealing best practices for developers and end users
+    - presentaion tools including leaderboards and test reports
 
 
 ## Proposal
