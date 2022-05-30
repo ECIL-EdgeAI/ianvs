@@ -24,7 +24,7 @@ The distributed synergy AI benchmarking toolkits Ianvs aims to test the performa
     - Dataset collection, re-organization, and publication
     - Formalized Specifications, e.g., Standards 
     - Holding Competitions or Coding Events, e.g., Open Source Promotion Plan
-    - Maintaining Solution Leaderboards or Certification for commercial usage 
+    - Maintaining Solution Leaderboards or Certifications for Commercial Usage 
 
 Targeting users
 - Developers: Build and publish edge-cloud collaborative AI solutions efficiently from scratch
