@@ -6,10 +6,9 @@ Ianvs is a distributed synergy AI benchmarking project incubated in KubeEdge SIG
 when it comes to the landing of distributed synergy AI projects, developers suffer from the lack of support on related datasets and algorithms; 
 while end users are lost in the sea of mismatched solutions. 
 That limits the wide application of related techniques and hinders a prosperous ecosystem of distributed synergy AI. 
-Confronted with these challenges, Ianvs aims to test the performance of distributed synergy AI solutions following recognized standards, 
-in order to facilitate more efficient and effective development.
 
-More detailedly, Ianvs prepares not only test cases with datasets and corresponding algorithms, 
+Confronted with these challenges, Ianvs aims to test the performance of distributed synergy AI solutions following recognized standards, 
+in order to facilitate more efficient and effective development. More detailedly, Ianvs prepares not only test cases with datasets and corresponding algorithms, 
 but also benchmarking tools including simulation and hyper-parameter searching. 
 Ianvs also revealing best practices for developers and end users with presentation tools including leaderboards and test reports. 
 
