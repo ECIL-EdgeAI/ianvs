@@ -32,6 +32,7 @@ Ianvs also revealing best practices for developers and end users with presentati
 .. toctree::
     :maxdepth: 1
     :caption: SCENARIOs
+    
     Industrial Defect Detection: PCB-AoI <proposals/scenarios/industrial-defect-detection/pcb-api>
 
 .. toctree::
