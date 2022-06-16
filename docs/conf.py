@@ -25,11 +25,6 @@ try:
 except ModuleNotFoundError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "m2r2"])
 
-try:
-    import autoapi
-except ModuleNotFoundError:
-    subprocess.check_call([sys.executable, "-m", "pip",
-                           "install", "sphinx-autoapi"])
 
 sys.path.insert(0, os.path.abspath('.'))
 
