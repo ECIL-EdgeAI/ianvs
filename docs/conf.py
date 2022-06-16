@@ -6,14 +6,32 @@
 
 # -- Path setup --------------------------------------------------------------
 
+# -- Path setup --------------------------------------------------------------
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import re
+import sys
+import shutil
+import subprocess
 
+import sphinx_rtd_theme
+
+try:
+    import m2r2
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "m2r2"])
+
+try:
+    import autoapi
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip",
+                           "install", "sphinx-autoapi"])
+
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
