@@ -1,5 +1,5 @@
 ===========================================
-Ianvs Documentation
+Welcome to Ianvs documentation!
 ===========================================
 
 Ianvs is a distributed synergy AI benchmarking project incubated in KubeEdge SIG AI. According to the landing challenge survey 2022 in KubeEdge SIG AI, 
@@ -18,8 +18,8 @@ Ianvs also revealing best practices for developers and end users with presentati
     :maxdepth: 1
     :caption: GUIDEs
 
-    Quick Start <guides/quick-start>
-    Detailed Introduction of Ianvs <distributed-synergy-ai-benchmarking>
+    guides/quick-start
+    distributed-synergy-ai-benchmarking
     guides/how-to-install-ianvs
     guides/how-to-contribute-test-environments
     guides/how-to-test-algorithms
