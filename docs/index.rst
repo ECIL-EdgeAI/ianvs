@@ -18,8 +18,8 @@ Ianvs also revealing best practices for developers and end users with presentati
     :maxdepth: 1
     :caption: GUIDEs
 
+    Introduction to Ianvs <distributed-synergy-ai-benchmarking>
     guides/quick-start
-    distributed-synergy-ai-benchmarking
     guides/how-to-install-ianvs
     guides/how-to-contribute-test-environments
     guides/how-to-test-algorithms
@@ -34,6 +34,8 @@ Ianvs also revealing best practices for developers and end users with presentati
 
 .. toctree::
     :maxdepth: 1
+    :titlesonly:
+    :glob:
     :caption: ALGORITHMs
 
     Single Task Learning: FPN <proposals/algorithms/single-task-learning/fpn>
@@ -51,13 +53,13 @@ Ianvs also revealing best practices for developers and end users with presentati
 
 
 .. toctree::
+    :maxdepth: 1
     :caption: ROADMAP
-    :hidden:
 
     roadmap
 
 
-RELATED LINKS
+RELATED LINKs
 =============
 
 .. mdinclude:: related-link.md
