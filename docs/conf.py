@@ -32,7 +32,7 @@ release = 'v0.1'
 # ones.
 extensions = [
     'recommonmark',
-    'myst-parser'
+    'myst_parser'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
