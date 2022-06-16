@@ -12,14 +12,17 @@ in order to facilitate more efficient and effective development. More detailedly
 but also benchmarking tools including simulation and hyper-parameter searching. 
 Ianvs also revealing best practices for developers and end users with presentation tools including leaderboards and test reports. 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Introduction
 
+    Introduction to Ianvs <distributed-synergy-ai-benchmarking>
+    guides/quick-start
 
 .. toctree::
     :maxdepth: 1
     :caption: GUIDEs
 
-    Introduction to Ianvs <distributed-synergy-ai-benchmarking>
-    guides/quick-start
     guides/how-to-install-ianvs
     guides/how-to-contribute-test-environments
     guides/how-to-test-algorithms
