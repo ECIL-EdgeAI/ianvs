@@ -2,7 +2,7 @@
 
 Download link: [Kaggle](https://www.kaggle.com/datasets/kubeedgeianvs/pcb-aoi)
 
-Author: 
+Authors: 
 - China Telcom Research Institute: Dongdong Li, Dan Liu, Yun Shen, Yaqi Song 
 - Raisecom Technology Co.,ltd.: Liangliang Luo
 
@@ -12,6 +12,4 @@ In this datset, more than 230 boards is collected and enhanced to 1200+ images. 
 
  [The PCB-AoI dataset](https://www.kaggle.com/datasets/kubeedgeianvs/pcb-aoi) is part of the open-source distributed synergy AI benchmarking project KubeEdge-Ianvs.  Ianvs is honored to be the ``First`` site that this dataset is released. It is released by KubeEdge SIG AI members from China Telecom and Raisecom Technology. Below shows two example figures in the dataset. 
 
-<center class="half">
-    <img src="images/PCB-AoI-Example1.jpeg" width=400px/><img src="images/PCB-AoI-Example2.jpeg" width=400px/>
-</center>
+![](images/PCB-AoI_example.png)
