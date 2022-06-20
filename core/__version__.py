@@ -12,4 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .__version__ import __version__
+"""Ianvs version information."""
+import os
+
+
+_VERSION = os.path.join(os.path.dirname(__file__), "VERSION")
+
+with open(_VERSION, "r", encoding="utf-8") as fin:
+    tmp = [line.strip() for line in fin if line.strip()]
+    __version__ = "-".join(tmp) if tmp else "dev"

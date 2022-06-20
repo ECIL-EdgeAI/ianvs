@@ -1,7 +1,20 @@
+# Copyright 2022 The KubeEdge Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Setuptools of Ianvs"""
 import sys
 import os
-import platform
 
 from setuptools import setup, find_packages
 
@@ -14,11 +27,11 @@ class InstallPrepare:
     """
 
     def __init__(self):
-        self.project = os.path.join(os.path.dirname(__file__))
-        self._long_desc = os.path.join(self.project, "README.md")
+        self.project = os.path.join(os.path.dirname(__file__), "core")
+        self._long_desc = os.path.join(self.project, "..", "README.md")
         self._version = os.path.join(self.project, "VERSION")
-        self._owner = os.path.join(self.project, "OWNERS")
-        self._requirements = os.path.join(self.project, "requirements.txt")
+        self._owner = os.path.join(self.project, "..", "OWNERS")
+        self._requirements = os.path.join(self.project, "..", "requirements.txt")
 
     @property
     def long_desc(self):
@@ -56,13 +69,6 @@ class InstallPrepare:
     @property
     def basic_dependencies(self):
         return self._read_requirements(self._requirements)
-
-    @property
-    def scripts(self):
-        prefix = "sh"
-        if platform.system().lower() == "windows":
-            prefix = ".bat"
-        return [os.path.join(self.project, f"third_party/install.{prefix}")]
 
     @staticmethod
     def _read_requirements(file_path, section="all"):
