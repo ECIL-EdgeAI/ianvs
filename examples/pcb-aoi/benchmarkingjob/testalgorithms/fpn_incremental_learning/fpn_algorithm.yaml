@@ -1,7 +1,7 @@
 algorithm:
   paradigm: "incrementallearning"
   dataset_train_ratio: 0.8
-  initial_model_url: "/ianvs/pcb-aoi/initial_model/model.zip"
+  initial_model_url: "/ianvs/initial_model/model.zip"
   modules:
     - kind: "basemodel"
       name: "estimator"

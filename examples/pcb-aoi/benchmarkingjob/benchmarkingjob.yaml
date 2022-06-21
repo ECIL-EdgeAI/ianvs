@@ -13,8 +13,8 @@ testjob:
   algorithms:
     - name: "fpn_singletask_learning"
       url: "./examples/pcb-aoi/benchmarkingjob/testalgorithms/fpn_singletask_learning/fpn_algorithm.yaml"
-#    - name: "fpn_incremental_learning"
-#      url: "./examples/pcb-aoi/benchmarkingjob/testalgorithms/fpn_incremental_learning/fpn_algorithm.yaml"
+    - name: "fpn_incremental_learning"
+      url: "./examples/pcb-aoi/benchmarkingjob/testalgorithms/fpn_incremental_learning/fpn_algorithm.yaml"
 
   rank:
     # 排行榜的排序规则，列表类型，可选，默认值是 []；
