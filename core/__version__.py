@@ -12,12 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Ianvs version information."""
-import os
+"""ianvs version information."""
 
-
-_VERSION = os.path.join(os.path.dirname(__file__), "VERSION")
-
-with open(_VERSION, "r", encoding="utf-8") as fin:
-    tmp = [line.strip() for line in fin if line.strip()]
-    __version__ = "-".join(tmp) if tmp else "dev"
+__version__ = "0.1.0"
