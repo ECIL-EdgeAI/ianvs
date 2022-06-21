@@ -1,0 +1,16 @@
+algorithm:
+  paradigm: "incrementallearning"
+  dataset_train_ratio: 0.8
+  initial_model_url: "/ianvs/initial_model/model.zip"
+  modules:
+    - kind: "basemodel"
+      name: "estimator"
+      url: "./examples/pcb-aoi/incremental_learning_bench/testalgorithms/fpn/basemodel.py"
+      hyperparameters:
+        - momentum:
+            values:
+              - 0.8
+              - 0.6
+        - other_hyperparameters:
+            values:
+              - "./examples/pcb-aoi/incremental_learning_bench/testalgorithms/fpn/fpn_hyperparameter.yaml"

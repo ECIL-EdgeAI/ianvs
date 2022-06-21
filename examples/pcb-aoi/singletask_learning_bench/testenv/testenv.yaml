@@ -1,0 +1,22 @@
+# 测试环境配置（考官出考卷）
+testenv:
+  # 数据配置
+  dataset:
+    # 数据地址， 字符串类型， 必填， 默认值是 ""；
+    # 当前支持数据文件格式有csv(结构化数据）、txt(非结构化数据）；
+    # todo: 暴露接口，支持用户自定义数据格式转换；
+    url: "/ianvs/dataset/pcb_imgs/index.txt"
+    # 模型训练数据集比例， 浮点类型， 可选，默认值是 0.8；
+    train_ratio: 0.8
+    # 数据拆分方式，字符串类型， 可选，默认值是 "default"
+    # "default"方法： 数据列表按照eval_ratio比例切分；
+    splitting_method: "default"
+
+  # ianvs评估的指标计算方法，列表类型， 必填，当前metrics.py内置支持 "smape" 和 "max_error_rate"；
+  # 单个算法的评估指标。注：在终身学习中单个算法可能产生多个模型，此处为单个算法多个模型的端到端评估指标
+  # 可以填写希望显示的多个指标
+  # TODO： 指标按照列举先后顺序作为优先级排序，比如列在前面的优先级更高
+  # Todo: 目前仅支持内置，用户需要增加时就修改内置metrics.py，后续支持用户自定义指标
+  metrics:
+    - name: "f1_score"
+      url: "./examples/pcb-aoi/singletask_learning_bench/testenv/f1_score.py"
