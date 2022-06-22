@@ -22,8 +22,8 @@ from core.cmd.obj.benchmarkingjob import BenchmarkingJob
 def main():
     args = parse_args()
     try:
-        if args.config_file:
-            config = utils.yaml2dict(args.config_file)
+        if args.benchmarking_config_file:
+            config = utils.yaml2dict(args.benchmarking_config_file)
     except Exception as err:
         LOGGER.exception(f"load config file(url={args.config_file} failed, error: {err}.")
 
@@ -43,11 +43,12 @@ def main():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='local AI test tool')
-    parser.add_argument("-f", "--config_file",
-                        nargs="?", default="~/config_file.yaml",
+    parser = argparse.ArgumentParser(description='AI Benchmarking Tool')
+    parser.add_argument("-f", "--benchmarking_config_file",
+                        nargs="?", default="~/benchmarking_config_file.yaml",
                         type=str,
-                        help="the config file for local AI test must be yaml format")
+                        help="the benchmarking config file must be yaml/yml file")
+    parser.add_argument("-v",  help="the version of tool")
     args = parser.parse_args()
     return args
 
