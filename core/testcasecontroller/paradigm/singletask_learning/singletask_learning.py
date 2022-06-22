@@ -31,11 +31,11 @@ class SingleTaskLearning(ParadigmBase):
         os.environ["BASE_MODEL_URL"] = current_model_url
 
         job, feature_process = self.algorithm.build()
-        train_dataset = self.load_data(self.dataset.train_dataset, "train", feature_process=feature_process)
+        train_dataset = self.load_data(self.dataset.train_url, "train", feature_process=feature_process)
         job.train(train_dataset)
         trained_model_path = job.save(train_output_dir)
 
-        inference_dataset = self.load_data(self.dataset.eval_dataset, "inference", feature_process=feature_process)
+        inference_dataset = self.load_data(self.dataset.test_url, "inference", feature_process=feature_process)
         inference_output_dir = os.path.join(self.workspace, f"output/inference/")
         os.environ["INFERENCE_OUTPUT_DIR"] = inference_output_dir
         job.load(trained_model_path)

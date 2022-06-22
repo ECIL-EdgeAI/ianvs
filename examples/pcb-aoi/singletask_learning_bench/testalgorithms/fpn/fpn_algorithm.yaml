@@ -26,7 +26,7 @@ algorithm:
             # values of the hyperparameter; list type;
             # types of the value are string/int/float/boolean/list/dictionary
             values:
-              - 0.7
+              - 0.95
               - 0.5
           # hyperparameters configuration files; dictionary type;
         - other_hyperparameters:

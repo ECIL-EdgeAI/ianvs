@@ -16,7 +16,7 @@ import argparse
 
 from core.common.log import LOGGER
 from core.common import utils
-from core.cmd.obj.benchmarkingjob import TestJob
+from core.cmd.obj.benchmarkingjob import BenchmarkingJob
 
 
 def main():
@@ -28,18 +28,18 @@ def main():
         LOGGER.exception(f"load config file(url={args.config_file} failed, error: {err}.")
 
     try:
-        test_job = TestJob(config[str.lower(TestJob.__name__)])
+        job = BenchmarkingJob(config[str.lower(BenchmarkingJob.__name__)])
     except ValueError as err:
         LOGGER.exception(f"init test job failed, error: {err}")
         return
 
     try:
-        test_job.run()
+        job.run()
     except Exception as err:
-        LOGGER.exception(f"test job(name={test_job.name}) runs failed, error: {err}.")
+        LOGGER.exception(f"test job(name={job.name}) runs failed, error: {err}.")
         return
 
-    LOGGER.info(f"test job(name={test_job.name}) runs successfully!")
+    LOGGER.info(f"test job(name={job.name}) runs successfully!")
 
 
 def parse_args():

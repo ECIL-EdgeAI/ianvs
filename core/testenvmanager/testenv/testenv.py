@@ -29,14 +29,14 @@ class TestEnv:
         self.metrics = []
         self.incremental_rounds = 2
 
-    def prepare(self, workerspace):
-        """ prepare env"""
-        try:
-            self.dataset.process_dataset(workerspace)
-        except Exception as err:
-            raise Exception(f"prepare dataset failed, error: {err}.")
-
     def check_fields(self):
         self.dataset.check_fields()
         if not self.metrics:
             raise ValueError(f"not found testenv metrics({self.metrics}).")
+
+    def prepare(self):
+        """ prepare env"""
+        try:
+            self.dataset.process_dataset()
+        except Exception as err:
+            raise Exception(f"prepare dataset failed, error: {err}.")

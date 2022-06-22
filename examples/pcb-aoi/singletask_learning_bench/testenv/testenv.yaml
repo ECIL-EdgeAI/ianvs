@@ -1,14 +1,10 @@
 testenv:
   # dataset configuration
   dataset:
-    # the url address of dataset; string type;
-    url: "/ianvs/dataset/pcb_imgs/index.txt"
-    # ratio of training dataset; float type;
-    train_ratio: 0.8
-    # the method of splitting dataset; string type; optional;
-    # currently the options of value are as follows:
-    #   1> "default": the dataset is evenly divided based train_ratio;
-    splitting_method: "default"
+    # the url address of train dataset index; string type;
+    train_url: "/ianvs/dataset/train_data/index.txt"
+    # the url address of test dataset index; string type;
+    test_url: "/ianvs/dataset/test_data/index.txt"
 
   # metrics configuration for test case's evaluation; list type;
   metrics:

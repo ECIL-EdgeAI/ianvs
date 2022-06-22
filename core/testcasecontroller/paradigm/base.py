@@ -13,6 +13,10 @@
 # limitations under the License.
 
 import os
+
+from sedna.datasources import CSVDataParse, TxtDataParse
+
+from core.common.constant import DatasetFormat
 from core.common import utils
 from core.testcasecontroller.metrics import get_metric_func
 
@@ -33,28 +37,20 @@ class ParadigmBase:
             if callable(metric):
                 metric_funcs.append(metric)
 
-        eval_dataset_file = self.dataset.eval_dataset
-        eval_dataset = self.load_data(eval_dataset_file, data_type="eval overall", label=self.dataset.label)
+        test_dataset_file = self.dataset.test_url
+        test_dataset = self.load_data(test_dataset_file, data_type="eval overall", label=self.dataset.label)
         metric_res = {}
         for metric in metric_funcs:
-            metric_res[metric.__name__] = metric(eval_dataset.y, result)
+            metric_res[metric.__name__] = metric(test_dataset.y, result)
         return metric_res
 
-    def preprocess_dataset(self, splitting_times=1):
+    def dataset_output_dir(self):
         output_dir = os.path.join(self.workspace, "dataset")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-
-        dataset_files = self.dataset.splitting_more_times(self.dataset.train_dataset,
-                                                          self.dataset.format,
-                                                          self.dataset.train_ratio,
-                                                          output_dir,
-                                                          times=splitting_times)
-        return dataset_files
+        return output_dir
 
     def load_data(self, file: str, data_type: str, label=None, use_raw=False, feature_process=None):
-        from sedna.datasources import CSVDataParse, TxtDataParse
-        from core.common.constant import DatasetFormat
         format = utils.get_file_format(file)
 
         if format == DatasetFormat.CSV.value:

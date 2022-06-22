@@ -23,7 +23,7 @@ from core.common import utils
 from core.testenvmanager.testenv import TestEnv
 
 
-class TestJob:
+class BenchmarkingJob:
     def __init__(self, config):
         self.name: str = ""
         self.workspace: str = "./workspace"
@@ -51,7 +51,7 @@ class TestJob:
             self.workspace = os.path.join(self.workspace, self.name)
             if not self.metrics:
                 self.metrics = self.testenv.metrics
-            self.testenv.prepare(self.workspace)
+            self.testenv.prepare()
         except Exception as err:
             raise Exception(f"prepare test env failed, error: {err}.")
 

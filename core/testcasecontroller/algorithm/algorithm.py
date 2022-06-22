@@ -40,7 +40,10 @@ class Algorithm:
     def __init__(self):
         self.name: str = ""
         self.paradigm: str = ""
-        self.dataset_train_ratio: float = 0.8
+        self.incremental_learning_data_setting: dict = {
+            "train_ratio": 0.8,
+            "splitting_method": "default"
+        }
         self.initial_model_url: str = ""
         self.modules: dict = {}
 
@@ -49,8 +52,10 @@ class Algorithm:
             raise ValueError(f"the field of algorithm name({self.name}) is unvaild.")
         if not self.paradigm and not isinstance(self.paradigm, str):
             raise ValueError(f"the field of algorithm paradigm({self.paradigm}) is unvaild.")
-        if not isinstance(self.dataset_train_ratio, float):
-            raise ValueError(f"the field of algorithm dataset_train_ratio({self.dataset_train_ratio}) is unvaild.")
+        if not isinstance(self.incremental_learning_data_setting, dict):
+            raise ValueError(
+                f"the field of algorithm incremental_learning_data_setting({self.incremental_learning_data_setting})"
+                f" is unvaild.")
         if not isinstance(self.initial_model_url, str):
             raise ValueError(f"the field of algorithm initial_model_url({self.initial_model_url}) is unvaild.")
         for m in self.modules:

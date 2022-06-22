@@ -45,7 +45,7 @@ __all__ = ["BaseModel"]
 os.environ['BACKEND_TYPE'] = 'TENSORFLOW'
 
 
-@ClassFactory.register(ClassType.GENERAL, "estimator")
+@ClassFactory.register(ClassType.GENERAL, alias="estimator")
 class BaseModel:
 
     def __init__(self, **kwargs):
