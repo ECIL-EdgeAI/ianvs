@@ -105,4 +105,5 @@ benchmarking config file (e.g. `benchmarkingjob.yaml`), which might look like:
 
 |rank|algorithm              |f1_score          |paradigm          |basemodel|learning_rate|momentum|time               |url                                                                                                  |
 |----|-----------------------|------------------|------------------|---------|-------------|--------|-------------------|-----------------------------------------------------------------------------------------------------|
-|1   |fpn_singletask_learning|0.9446112779446113|singletasklearning|estimator|0.1          |0.1     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
+|1   |fpn_singletask_learning|0.7177014191939565|singletasklearning|estimator|0.1          |0.7     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
+|2   |fpn_singletask_learning|0.7157613691075415|singletasklearning|estimator|0.1          |0.5     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
