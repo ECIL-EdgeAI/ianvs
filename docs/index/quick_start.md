@@ -46,8 +46,8 @@ python setup.py install
 ```
 mkdir -p /ianvs/dataset/   
 cd /ianvs/dataset/  
-wget https://kubeedge.obs.cn-north-1.myhuaweicloud.com:443/ianvs/pcb-aoi/pcb_imgs.tar.gz
-tar -zxvf pcb_imgs.tar.gz
+wget https://kubeedge.obs.cn-north-1.myhuaweicloud.com:443/ianvs/pcb-aoi/dataset.zip
+unzip dataset.zip
 
 mkdir -p /ianvs/initial_model/   
 cd /ianvs/initial_model/
