@@ -1,8 +1,11 @@
 [Links of scenarios]: ../proposals/scenarios/
 [the PCB-AoI public dataset]: https://www.kaggle.com/datasets/kubeedgeianvs/pcb-aoi
-[details of PCB-AoI dataset]: ../proposals/scenarios/industrial-defect-detection/pcb-aoi.md
+[Details of PCB-AoI dataset]: ../proposals/scenarios/industrial-defect-detection/pcb-aoi.md
 [XFTP]: https://www.xshell.com/en/xftp/
 [FPN-model]: https://kubeedge.obs.cn-north-1.myhuaweicloud.com:443/ianvs/pcb-aoi/model.zip
+[How to test algorithms]: how-to-test-algorithms.md
+[How to contribute algorithms]: how-to-contribute-algorithms.md
+[How to contribute test environments]: how-to-contribute-test-environments.md
 
 # Quick Start
 
@@ -55,23 +58,19 @@ We are now ready to install Ianvs.
   
 Datasets and models can be large. To avoid over-size projects in the Github repository of Ianvs, the Ianvs code base do not include origin datasets and models. Then developers do not need to download non-necessary datasets and models for a quick start.
 
-First, the user need to prepare the dataset according to the targeted scenario, from source links (e.g., from Kaggle) provided by Ianvs. Scenarios with dataset are  available [Links of scenarios]. As an example in this document, we are using [the PCB-AoI Public Dataset] released by KubeEdge SIG AI members on Kaggle. See [details of PCB-AoI dataset] for more information of this dataset. 
+First, the user need to prepare the dataset according to the targeted scenario, from source links (e.g., from Cloud Service or Kaggle) provided by Ianvs. All scenarios with dataset are available [Links of scenarios]. As an example in this document, we are using [the PCB-AoI Public Dataset] released by KubeEdge SIG AI members on Kaggle. See [Details of PCB-AoI dataset] for more information of this dataset. 
 
 
 
 ``` shell
 /home/ianvs-qs/project/ianvs$ cd /home/ianvs-qs #One might use other path preferred
 /home/ianvs-qs$ mkdir -p ./dataset/   
+/home/ianvs-qs$ cd ./dataset
+/home/ianvs-qs/dataset$ wget https://kubeedge.obs.cn-north-1.myhuaweicloud.com:443/ianvs/pcb-aoi/dataset.zip
+/home/ianvs-qs/dataset$ unzip dataset.zip
 ```
 
-Please put the downloaded dataset on the above datset path, e.g., `/home/ianvs-qs/dataset`. One can transfer the dataset to the path, e.g., on a remote Linux system using [XFTP]. 
-
-
-
-``` shell
-/home/ianvs-qs$ cd ./dataset/  
-/home/ianvs-qs/dataset$ tar -zxvf pcb_imgs.tar.gz
-```
+<!-- Please put the downloaded dataset on the above datset path, e.g., `/home/ianvs-qs/dataset`. One can transfer the dataset to the path, e.g., on a remote Linux system using [XFTP].  -->
 
 Then we may Develop the targeted algorithm as usual. In this quick start, Ianvs has prepared an initial model for benchmarking. One can find the model at [FPN-model].
 
@@ -80,9 +79,11 @@ Then we may Develop the targeted algorithm as usual. In this quick start, Ianvs 
 ``` shell
 /home/ianvs-qs/dataset$ cd /home/ianvs-qs #One might use other path preferred
 /home/ianvs-qs$ mkdir -p ./initial_model  
+/home/ianvs-qs$ cd /ianvs/initial_model/
+/home/ianvs-qs/initial_model$ wget https://kubeedge.obs.cn-north-1.myhuaweicloud.com:443/ianvs/pcb-aoi/model.zip
 ```
 
-Please put the downloaded model on the above model path, e.g., `/home/ianvs-qs/initial_model`. One can transfer the model to the path, e.g., on remote a Linux system using [XFTP]. 
+<!-- Please put the downloaded model on the above model path, e.g., `/home/ianvs-qs/initial_model`. One can transfer the model to the path, e.g., on remote a Linux system using [XFTP].  -->
 
 Related algorithm is also ready as a wheel in this quick start. 
 ``` shell
@@ -107,3 +108,19 @@ benchmarking config file (e.g. `benchmarkingjob.yaml`), which might look like:
 |----|-----------------------|------------------|------------------|---------|-------------|--------|-------------------|-----------------------------------------------------------------------------------------------------|
 |1   |fpn_singletask_learning|0.7177014191939565|singletasklearning|estimator|0.1          |0.7     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
 |2   |fpn_singletask_learning|0.7157613691075415|singletasklearning|estimator|0.1          |0.5     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
+
+
+
+# What is next
+
+Now the reader shall be ready to exlore more on Ianvs: 
+
+[How to test algorithms]
+
+[How to contribute algorithms]
+
+[How to contribute test environments]
+
+[Links of scenarios]
+
+[Details of PCB-AoI dataset]
