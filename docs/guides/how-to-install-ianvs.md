@@ -5,13 +5,12 @@ It is recommended to use Ianvs on Linux machine. But for quick algorith developm
 This guide covers how to install Ianvs on a Linux environment.
 
 ## Prerequisites
-* 1 VM(one machine is OK)
-* 2 CPUs or more
-* 4GB+ free memory
-* 10GB+ free disk space
-* Internet connection(github, pip etc.)
-* Linux platform, such as ubuntu
-* Python 3.6+
+- one machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
+- 2 CPUs or more
+- 4GB+ free memory, depends on algorithm and simulation setting
+- 10GB+ free disk space
+- internet connection for github and pip, etc
+- Python 3.6+ installed
 
 you can check the python version by the following command:
 ```
@@ -62,6 +61,6 @@ If the version information is printed, Ianvs is installed successful.
 
 
 
-## Install ianvs on Windows
+## About Windows
 
-TODO
+If you are used to develop on Windows, it is still suggested that you run ianvs on Linux to reduce dependency installation time, and get better running efficiency. 
