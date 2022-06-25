@@ -5,13 +5,12 @@ It is recommended to use Ianvs on Linux machine. But for quick algorith developm
 This guide covers how to install Ianvs on a Linux environment.
 
 ## Prerequisites
-* 1 VM(one machine is OK)
-* 2 CPUs or more
-* 4GB+ free memory
-* 10GB+ free disk space
-* Internet connection(github, pip etc.)
-* Linux platform, such as ubuntu
-* Python 3.6+
+- one machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
+- 2 CPUs or more
+- 4GB+ free memory, depends on algorithm and simulation setting
+- 10GB+ free disk space
+- internet connection for github and pip, etc
+- Python 3.6+ installed
 
 you can check the python version by the following command:
 ```
@@ -32,6 +31,8 @@ mkdir ~/venv
 virtualenv -p python3 ~/venv/ianvs
 source ~/venv/ianvs/bin/activate
 ```
+
+> If you prefer conda, you can create a python environment by referring to the [creating steps](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) provided by conda. 
 
 ### Download ianvs project
 ```
@@ -62,6 +63,8 @@ If the version information is printed, Ianvs is installed successful.
 
 
 
-## Install ianvs on Windows
+## About Windows
 
-TODO
+At the time being, package requirements of Ianvs is only applicable for Linux, to ensure comprehensive support from Linux ecosystem and to ease the burden of manual installation for users in Windows.
+
+If you are more used to develop on Windows, you can still do so with remote connections like SSH from Windows connecting to a Linux machine with ianvs installed. Such remote connection is already supported in common Python coding tools like VScode, Pycharm etc. By doing so, it helps to provide efficient installation and robust functionality of Ianvs.
