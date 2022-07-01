@@ -21,25 +21,16 @@ from core.cmd.obj.benchmarkingjob import BenchmarkingJob
 
 def main():
     args = parse_args()
-    try:
-        if args.benchmarking_config_file:
+    if args.benchmarking_config_file:
+        try:
             config = utils.yaml2dict(args.benchmarking_config_file)
-    except Exception as err:
-        LOGGER.exception(f"load config file(url={args.config_file} failed, error: {err}.")
+            job = BenchmarkingJob(config[str.lower(BenchmarkingJob.__name__)])
+            job.run()
+        except Exception as err:
+            LOGGER.exception(f"benchmarking job runs failed, error: {err}.")
+            return
 
-    try:
-        job = BenchmarkingJob(config[str.lower(BenchmarkingJob.__name__)])
-    except ValueError as err:
-        LOGGER.exception(f"init test job failed, error: {err}")
-        return
-
-    try:
-        job.run()
-    except Exception as err:
-        LOGGER.exception(f"test job(name={job.name}) runs failed, error: {err}.")
-        return
-
-    LOGGER.info(f"test job(name={job.name}) runs successfully!")
+        LOGGER.info(f"benchmarking job runs successfully!")
 
 
 def parse_args():
@@ -48,7 +39,6 @@ def parse_args():
                         nargs="?", default="~/benchmarking_config_file.yaml",
                         type=str,
                         help="the benchmarking config file must be yaml/yml file")
-    parser.add_argument("-v",  help="the version of tool")
     args = parser.parse_args()
     return args
 
