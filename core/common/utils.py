@@ -23,11 +23,12 @@ from inspect import getfullargspec
 
 def is_local_file(url):
     """ check if the url is a file and already exists locally """
-    if not os.path.isfile(url):
-        return False
-    if not os.path.exists(url):
-        return False
-    return True
+    return os.path.isfile(url)
+
+
+def is_local_dir(url):
+    """ check if the url is a dir and already exists locally """
+    return os.path.isdir(url)
 
 
 def get_file_format(url):

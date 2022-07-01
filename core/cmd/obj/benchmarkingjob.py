@@ -16,10 +16,11 @@ import copy
 import os
 from itertools import product
 
-from core.testcasecontroller.algorithm import Algorithm, Module
-from core.testcasecontroller.testcase import TestCase
+from core.testcasecontroller.algorithm import Algorithm
+from core.testcasecontroller.algorithm.module import Module
 from core.storymanager.rank import Rank
 from core.common import utils
+from core.testcasecontroller.testcasecontroller import TestCaseController
 from core.testenvmanager.testenv import TestEnv
 
 
@@ -28,6 +29,7 @@ class BenchmarkingJob:
         self.name: str = ""
         self.workspace: str = "./workspace"
         self.testenv: TestEnv = TestEnv()
+        self.testcase_controller = TestCaseController()
         self.metrics: list = []
         self.algorithms: list = []
         self.rank: Rank = Rank()
@@ -55,19 +57,11 @@ class BenchmarkingJob:
         except Exception as err:
             raise Exception(f"prepare test env failed, error: {err}.")
 
-        test_cases = []
-        test_results = {}
-        try:
-            for algorithm in self.algorithms:
-                test_cases.append(TestCase(self.testenv, algorithm))
-            for test_case in test_cases:
-                test_case.prepare(self.metrics, self.workspace)
-                test_results[test_case.id] = (test_case.run(), utils.get_local_time())
-        except Exception as err:
-            raise Exception(f"test cases run failed, error:{err}.")
+        self.testcase_controller.build_testcases(test_env=self.testenv, algorithms=self.algorithms)
+        succeed_testcases, test_results = self.testcase_controller.run_testcases(self.metrics, self.workspace)
         if test_results:
             try:
-                self.rank.save(test_cases, test_results, output_dir=self.workspace)
+                self.rank.save(succeed_testcases, test_results, output_dir=self.workspace)
             except Exception as err:
                 raise Exception(f"test job(name={self.name}) saves test results failed, error: {err}.")
 

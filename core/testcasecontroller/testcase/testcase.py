@@ -15,7 +15,8 @@
 import os
 import uuid
 
-from core.testcasecontroller.paradigm import Paradigm
+from core.common.constant import SystemMetricKind
+from core.testcasecontroller.metrics import get_metric_func
 
 
 class TestCase:
@@ -52,8 +53,34 @@ class TestCase:
 
     def run(self):
         try:
-            paradigm = Paradigm(self.algorithm.paradigm, self.test_env, self.algorithm, self.output_dir)
-            res = paradigm.run()
+            dataset = self.test_env.dateaset
+            test_env_config = {}
+            for k, v in self.test_env.__dict__.items():
+                test_env_config[k] = v
+
+            paradigm = self.algorithm.paradigm(dataset, self.output_dir, **test_env_config)
+            res, system_metric_info = paradigm.run()
+            test_result, system_metric_info = self.compute_metrics(res, dataset, **system_metric_info)
+
         except Exception as err:
             raise Exception(f"(paradigm={self.algorithm.paradigm}) pipeline runs failed, error: {err}")
-        return res
+        return test_result
+
+    def compute_metrics(self, paradigm_result, dataset, **kwargs):
+        metric_funcs = {}
+        for metric_dict in self.test_env.metrics:
+            metric_name, metric_func = get_metric_func(metric_dict=metric_dict)
+            if callable(metric_func):
+                metric_funcs.update({metric_name: metric_func})
+
+        test_dataset_file = dataset.test_url
+        test_dataset = self.dataset.load_data(test_dataset_file, data_type="eval overall", label=self.dataset.label)
+
+        metric_res = {}
+        for metric_name, metric_func in metric_funcs:
+            if metric_name in SystemMetricKind.__members__.values():
+                metric_res[metric_name] = metric_func(kwargs)
+            else:
+                metric_res[metric_name] = metric_func(test_dataset.y, paradigm_result)
+
+        return metric_res

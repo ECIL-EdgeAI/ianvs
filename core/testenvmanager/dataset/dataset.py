@@ -16,6 +16,7 @@ import os
 import tempfile
 
 import pandas as pd
+from sedna.datasources import CSVDataParse, TxtDataParse
 
 from core.common import utils
 from core.common.constant import DatasetFormat
@@ -70,12 +71,14 @@ class Dataset:
         self.train_url = self._process_index_file(self.train_url)
         self.test_url = self._process_index_file(self.test_url)
 
-    def splitting_dataset(self, dataset_url, dataset_format, ratio, method="default", output_dir=None, times=1):
+    def splitting_dataset(self, dataset_url, dataset_format, ratio, method="default", types=None,
+                          output_dir=None, times=1):
         try:
             if method == "default":
                 return self._splitting_more_times(dataset_url,
                                                   dataset_format,
                                                   ratio,
+                                                  types=types,
                                                   output_dir=output_dir,
                                                   times=times)
             else:
@@ -83,12 +86,15 @@ class Dataset:
         except Exception as err:
             raise Exception(f"split dataset failed, error:{err}")
 
-    def _splitting_more_times(self, dataset_url, dataset_format, ratio, output_dir=None, times=1):
+    def _splitting_more_times(self, dataset_url, dataset_format, ratio, types=None, output_dir=None, times=1):
+        if not types:
+            types = ("train", "eval")
+
         if not output_dir:
             output_dir = tempfile.mkdtemp()
 
         def get_file_url(type, id, format):
-            return os.path.join(output_dir, f"dataset-{type}-{id}.{format}")
+            return os.path.join(output_dir, f"{type}-{id}.{format}")
 
         dataset_files = []
         if dataset_format == DatasetFormat.CSV.value:
@@ -104,11 +110,11 @@ class Dataset:
 
                 new_num = len(new_df)
                 train_data = new_df[:int(new_num * ratio)]
-                train_data_file = get_file_url("train", index, dataset_format)
+                train_data_file = get_file_url(types[0], index, dataset_format)
                 train_data.to_csv(train_data_file, index=None)
 
                 eval_data = new_df[int(new_num * ratio):]
-                eval_data_file = get_file_url("eval", index, dataset_format)
+                eval_data_file = get_file_url(types[1], index, dataset_format)
                 eval_data.to_csv(eval_data_file, index=None)
                 dataset_files.append((train_data_file, eval_data_file))
 
@@ -137,11 +143,23 @@ class Dataset:
                         for line in data:
                             f.writelines(line + "\n")
 
-                train_data_file = get_file_url("train", index, dataset_format)
+                train_data_file = get_file_url(types[0], index, dataset_format)
                 write_to_file(train_data, train_data_file)
-                eval_data_file = get_file_url("eval", index, dataset_format)
+                eval_data_file = get_file_url(types[1], index, dataset_format)
                 write_to_file(eval_data, eval_data_file)
                 dataset_files.append((train_data_file, eval_data_file))
 
                 index += 1
         return dataset_files
+
+    def load_data(self, file: str, data_type: str, label=None, use_raw=False, feature_process=None):
+        format = utils.get_file_format(file)
+
+        if format == DatasetFormat.CSV.value:
+            data = CSVDataParse(data_type=data_type, func=feature_process)
+            data.parse(file, label=label)
+        elif format == DatasetFormat.TXT.value:
+            data = TxtDataParse(data_type=data_type, func=feature_process)
+            data.parse(file, use_raw=use_raw)
+
+        return data

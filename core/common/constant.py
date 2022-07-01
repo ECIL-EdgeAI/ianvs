@@ -15,6 +15,9 @@
 from enum import Enum
 
 
+# 常量是什么意思，写清楚
+# 方便用户加常量
+
 class DatasetFormat(Enum):
     """
     dataset format
@@ -27,5 +30,20 @@ class ParadigmKind(Enum):
     """
     paradigm kind
     """
-    SingleTaskLearning = "singletasklearning"
-    IncrementalLearning = "incrementallearning"
+    SINGLE_TASK_LEARNING = "singletasklearning"
+    INCREMENTAL_LEARNING = "incrementallearning"
+
+
+class ModuleKind(Enum):
+    """
+    module kind
+    """
+    BASEMODEL = "basemodel"
+    HARD_EXAMPLE_MINING = "hard_example_mining"
+
+
+class SystemMetricKind(Enum):
+    """
+    system metric kind
+    """
+    DATA_TRANSFER_COUNT_RATIO = "data_transfer_count_ratio"

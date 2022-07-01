@@ -21,7 +21,7 @@ class TestEnv:
         self.model_eval = {
             "model_metric": {
                 "name": "",
-                "parameters": {},
+                "url": "",
             },
             "threshold": 0.9,
             "operator": ">"

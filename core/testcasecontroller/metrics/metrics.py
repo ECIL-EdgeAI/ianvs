@@ -13,35 +13,34 @@
 # limitations under the License.
 
 import sys
-import numpy as np
 
 from sedna.common.class_factory import ClassFactory, ClassType
 
+from core.common.constant import SystemMetricKind
 from core.common.utils import load_module
 
-def smape(y_true, y_pred):
-    y_true = np.array(y_true).reshape(-1, 1)
-    y_pred = np.array(y_pred).reshape(-1, 1)
-    return np.mean(np.nan_to_num(np.abs(y_true - y_pred) / (np.abs(y_pred) + np.abs(y_true))))
+
+def data_trainsfer_count_ratio(system_metric_info: dict):
+    info = system_metric_info.get(SystemMetricKind.DATA_TRANSFER_COUNT_RATIO.value)
+    inference_num = 0
+    transfer_num = 0
+    for inference_data, transfer_data in info:
+        inference_num += len(open(inference_data, "r").readlines())
+        transfer_num += len(open(transfer_data, "r").readlines())
+    return float(transfer_num) / inference_num
 
 
-def max_error_rate(y_true, y_pred):
-    return max(np.nan_to_num(np.abs(y_true - y_pred) / (np.abs(y_pred) + np.abs(y_true))))
-
-
-def get_metric_func(metric_name: str = None, metric_dict: dict = None):
+def get_metric_func(metric_dict: dict):
     """ get metric func """
-    if isinstance(metric_name, str):
-        return getattr(sys.modules[__name__], metric_name)
-    elif isinstance(metric_dict, dict):
-        name = metric_dict.get("name")
-        url = metric_dict.get("url")
-        if url:
-            load_module(url)
-            try:
-                metric_func = ClassFactory.get_cls(type_name=ClassType.GENERAL, t_cls_name=name)
-            except Exception as err:
-                raise Exception(f"get metric func(url={url}) failed, error: {err}.")
-            return metric_func
-        else:
-            return getattr(sys.modules[__name__], name)
+
+    name = metric_dict.get("name")
+    url = metric_dict.get("url")
+    if url:
+        load_module(url)
+        try:
+            metric_func = ClassFactory.get_cls(type_name=ClassType.GENERAL, t_cls_name=name)
+        except Exception as err:
+            raise Exception(f"get metric func(url={url}) failed, error: {err}.")
+        return {name: metric_func}
+    else:
+        return {name: getattr(sys.modules[__name__], name)}
