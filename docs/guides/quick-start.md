@@ -18,11 +18,11 @@ with a simple example on industrial defect detection. You can reduce manual proc
 building and start your distributed synergy AI solution development within minutes. 
 
 Before using Ianvs, you might want to have the device ready: 
-- one machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
+- One machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
 - 2 CPUs or more
 - 4GB+ free memory, depends on algorithm and simulation setting
 - 10GB+ free disk space
-- internet connection for github and pip, etc
+- Internet connection for github and pip, etc
 - Python 3.6+ installed
   
 In this example, we are using Linux platform with Python 3.6.9. If you are using Windows, most steps should still apply but a few like commands and package requirements might be different. 
