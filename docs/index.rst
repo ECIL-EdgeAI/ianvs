@@ -74,12 +74,14 @@ Start your journey on Ianvs with the following links:
 
 .. toctree::
     :maxdepth: 1
-    :caption: API REFERENCE
     :titlesonly:
     :glob:
+    :caption: USER INTERFACE
 
-    api/lib/*
-    Python API <autoapi/lib/ianvs/index>
+    How to Config Algorithm <user_interface/how-to-config-algorithm>
+    How to Config TestEnv <user_interface/how-to-config-testenv>
+    How to Config Benchmarkingjob <user_interface/how-to-config-benchmarkingjob>
+
 
 
 .. toctree::
