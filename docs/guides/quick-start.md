@@ -18,11 +18,11 @@ with a simple example on industrial defect detection. You can reduce manual proc
 building and start your distributed synergy AI solution development within minutes. 
 
 Before using Ianvs, you might want to have the device ready: 
-- one machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
+- One machine is all you need, i.e., a laptop or a virtual machine is sufficient and cluster is not necessary
 - 2 CPUs or more
 - 4GB+ free memory, depends on algorithm and simulation setting
 - 10GB+ free disk space
-- internet connection for github and pip, etc
+- Internet connection for github and pip, etc
 - Python 3.6+ installed
   
 In this example, we are using Linux platform with Python 3.6.9. If you are using Windows, most steps should still apply but a few like commands and package requirements might be different. 
@@ -44,11 +44,11 @@ Then, we install third-party dependencies for ianvs.
 ``` shell
 /home/ianvs-qs/project$ cd ./ianvs 
 
-/home/ianvs-qs/project/ianvs$ apt update
-/home/ianvs-qs/project/ianvs$ apt install libgl1-mesa-glx -y
+/home/ianvs-qs/project/ianvs$ sudo apt-get update
+/home/ianvs-qs/project/ianvs$ sudo apt-get install libgl1-mesa-glx -y
 /home/ianvs-qs/project/ianvs$ python -m pip install --upgrade pip
 
-/home/ianvs-qs/project/ianvs$ python -m pip install third_party/*
+/home/ianvs-qs/project/ianvs$ python -m pip install ./examples/resources/third_party/*
 /home/ianvs-qs/project/ianvs$ python -m pip install -r requirements.txt
 ```
 
@@ -112,12 +112,10 @@ benchmarking config file (e.g. `benchmarkingjob.yaml`). In this quick start, we 
 
 The final output might look like:   
 
-|rank|algorithm              |f1_score          |paradigm          |basemodel|learning_rate|momentum|time               |url                                                                                                  |
-|----|-----------------------|------------------|------------------|---------|-------------|--------|-------------------|-----------------------------------------------------------------------------------------------------|
-|1   |fpn_singletask_learning|0.7177014191939565|singletasklearning|estimator|0.1          |0.7     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
-|2   |fpn_singletask_learning|0.7157613691075415|singletasklearning|estimator|0.1          |0.5     |2022-06-16 15:02:59|/ianvs/pcb-aoi/workspace/benchmarkingjob/fpn_singletask_learning/b3a84564-ed41-11ec-83c3-53ead20896e4|
-
-
+|rank  |algorithm                |f1_score  |paradigm            |basemodel  |learning_rate  |momentum  |time                     |url                                                                                                                             |
+|:----:|:-----------------------:|:--------:|:------------------:|:---------:|:-------------:|:--------:|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
+|1     |fpn_singletask_learning  | 0.8396   |singletasklearning  | FPN       | 0.1           | 0.5      | 2022-07-07 20:33:53     |/ianvs/pcb-aoi/singletask_learning_bench/workspace/benchmarkingjob/fpn_singletask_learning/49eb5ffd-fdf0-11ec-8d5d-fa163eaa99d5 |
+|2     |fpn_singletask_learning  | 0.8353   |singletasklearning  | FPN       | 0.1           | 0.95     | 2022-07-07 20:31:08     |/ianvs/pcb-aoi/singletask_learning_bench/workspace/benchmarkingjob/fpn_singletask_learning/49eb5ffc-fdf0-11ec-8d5d-fa163eaa99d5 |
 
 # What is next
 
