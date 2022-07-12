@@ -71,12 +71,14 @@ Start your journey on Ianvs with the following links:
 
 .. toctree::
     :maxdepth: 1
-    :caption: API REFERENCE
     :titlesonly:
     :glob:
+    :caption: USER INTERFACE
 
-    api/lib/*
-    Python API <autoapi/lib/ianvs/index>
+    How to Use Ianvs Command Line <user_interface/how-to-use-ianvs-command-line>
+
+
+
 
 
 .. toctree::
