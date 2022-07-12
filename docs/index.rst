@@ -75,9 +75,12 @@ Start your journey on Ianvs with the following links:
     :glob:
     :caption: USER INTERFACE
 
+
     How to Config Algorithm <user_interface/how-to-config-algorithm>
     How to Config TestEnv <user_interface/how-to-config-testenv>
     How to Config Benchmarkingjob <user_interface/how-to-config-benchmarkingjob>
+    How to Use Ianvs Command Line <user_interface/how-to-use-ianvs-command-line>
+
 
 
 
