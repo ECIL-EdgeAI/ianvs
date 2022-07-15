@@ -1,4 +1,4 @@
-This repository has been transferred to [kubeedge/ianvs](https://github.com/kubeedge/ianvs).
+This repository has been transferred to [kubeedge/ianvs](https://github.com/kubeedge/ianvs) on 2022-07-14.
 
 # Ianvs
 [![CI](https://github.com/kubeedge-sedna/ianvs/workflows/CI/badge.svg?branch=v0.1)](https://github.com/kubeedge-sedna/ianvs/actions)
